@@ -8,6 +8,8 @@ class user extends userModel
 {
     public string $Username = '';
     public string $Password = '';
+    public string $Email = '';
+    public string $PhoneNumber = '';
 
     public static function tableName(): string
     {
@@ -16,10 +18,6 @@ class user extends userModel
     public static function primaryKey(): string
     {
         return 'UserId';
-    }
-    public function getDisplayName(): string
-    {
-        return $this->Username;
     }
     public function attributes(): array
     {
@@ -42,5 +40,14 @@ class user extends userModel
     {
         $this->Password = sha1($this->Password);
         return parent::save();
+    }
+
+    public function getDisplayName(): string
+    {
+        return $this->Username;
+    }
+    public function getDisplay($data): string
+    {
+        return $this->$data;
     }
 }

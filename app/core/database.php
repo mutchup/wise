@@ -12,7 +12,7 @@ class database
     public function __construct()
     {
         $dsn = 'mysql:host=127.0.0.1;port=3306;dbname=Wise';
-        $user = 'Wise';
+        $user = 'WiseUser';
         $password = '123!@#';
 
         $this->pdo = new PDO($dsn, $user, $password);
